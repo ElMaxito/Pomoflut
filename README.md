@@ -8,7 +8,7 @@ Pomoflut is a minimalist Pomodoro timer application built with Flutter. It helps
 
 ## Download
 
-You can download the latest version of Pomoflut from the [Releases](https://github.com/yourusername/pomoflut/releases) page.
+You can download the latest version of Pomoflut from the [Releases]((https://github.com/ElMaxito/Pomoflut/releases)) page.
 
 ## Features
 
