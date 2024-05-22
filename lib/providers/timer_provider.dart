@@ -74,7 +74,6 @@ class TimerProvider with ChangeNotifier {
   void startTimer() {
     if (!isRunning) {
       isRunning = true;
-      _secondsRemaining = currentPhaseDuration * 60;
       _timer = Timer.periodic(Duration(seconds: 1), (timer) {
         if (_secondsRemaining > 0) {
           _secondsRemaining--;
@@ -82,15 +81,17 @@ class TimerProvider with ChangeNotifier {
         } else {
           _timer?.cancel();
           _playSound();
-          isRunning = false;
-          _switchPhase();
-          startTimer();  // Automatically start the next phase
+          Future.delayed(Duration(milliseconds: 500), () {
+            isRunning = false;
+            _switchPhase();
+            startTimer();  // Automatically start the next phase
+          });
         }
       });
     }
   }
 
-  void stopTimer() {
+  void pauseTimer() {
     if (isRunning) {
       _timer?.cancel();
       isRunning = false;
@@ -99,11 +100,12 @@ class TimerProvider with ChangeNotifier {
   }
 
   void resetTimer() {
-    stopTimer();
+    _timer?.cancel();
+    isRunning = false;
     _secondsRemaining = _timerModel.workDuration * 60;
     _currentPhase = Phase.Focus;
     _currentCycle = 1;
-    _timerModel.completedPomodoros = 0;  // Reset completed pomodoros count
+    _timerModel.completedPomodoros = 0;
     notifyListeners();
   }
 

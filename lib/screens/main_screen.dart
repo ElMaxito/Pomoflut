@@ -3,34 +3,7 @@ import 'package:provider/provider.dart';
 import '../providers/timer_provider.dart';
 import '../widgets/custom_progress_indicator.dart';
 
-class MainScreen extends StatefulWidget {
-  @override
-  _MainScreenState createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-  late Animation<double> _animation;
-
-  @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(
-      duration: const Duration(milliseconds: 500),
-      vsync: this,
-    );
-    _animation = Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeInOut,
-    ));
-  }
-
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
-
+class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final timerProvider = Provider.of<TimerProvider>(context);
@@ -95,47 +68,30 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
               ),
               SizedBox(height: 40),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      _animationController.forward(from: 0);
-                      timerProvider.startTimer();
-                    },
-                    child: Text('Start'),
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      elevation: 5,
+                  IconButton(
+                    icon: Icon(
+                      timerProvider.isRunning ? Icons.pause : Icons.play_arrow,
+                      size: 32,
                     ),
-                  ),
-                  ElevatedButton(
                     onPressed: () {
-                      timerProvider.stopTimer();
+                      if (timerProvider.isRunning) {
+                        timerProvider.pauseTimer();
+                      } else {
+                        timerProvider.startTimer();
+                      }
                     },
-                    child: Text('Stop'),
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      elevation: 5,
-                    ),
                   ),
-                  ElevatedButton(
+                  SizedBox(width: 20),
+                  IconButton(
+                    icon: Icon(
+                      Icons.stop,
+                      size: 32,
+                    ),
                     onPressed: () {
                       timerProvider.resetTimer();
                     },
-                    child: Text('Reset'),
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      elevation: 5,
-                    ),
                   ),
                 ],
               ),
