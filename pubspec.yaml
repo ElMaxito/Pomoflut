@@ -1,5 +1,5 @@
 name: pomoflut
-description: A new Flutter project.
+description: A Pomodoro timer application built with Flutter.
 publish_to: 'none' # Prevent accidental publishing to pub.dev
 
 version: 1.0.0+1
@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.6
   provider: ^5.0.0
   flutter_local_notifications: ^9.0.0
   audioplayers: ^0.20.1
