@@ -8,10 +8,8 @@ Pomoflut is a minimalist Pomodoro timer application built with Flutter. It helps
 - **Customizable Timer Settings**: Adjust the length of pomodoros, short breaks, and long breaks to suit your needs.
 - **Progress Tracking**: Display the number of completed pomodoros and the current cycle.
 - **Notifications**: Subtle audio notifications at the end of each pomodoro and break.
-- **Automatic Start**: Option to automatically start the next pomodoro or break when the previous one ends.
-- **Minimalist Mode**: Full-screen mode with a minimalist display showing only essential information.
+- **Automatic Start**: App automatically starts the next pomodoro or break when the previous one ends.
 - **Themes**: Light and dark themes for the app interface.
-- **Responsive Design**: Ensures the app adapts to different screen sizes and orientations.
 
 ## Getting Started
 
