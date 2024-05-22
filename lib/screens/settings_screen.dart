@@ -63,6 +63,17 @@ class SettingsScreen extends StatelessWidget {
                 );
               },
             ),
+            Text('Volume: ${(timerModel.volume * 100).toInt()}%'),
+            Slider(
+              value: timerModel.volume,
+              min: 0,
+              max: 1,
+              divisions: 10,
+              label: (timerModel.volume * 100).toInt().toString(),
+              onChanged: (value) {
+                timerProvider.updateVolume(value);
+              },
+            ),
             SwitchListTile(
               title: Text('Dark Mode'),
               value: themeProvider.isDarkMode,

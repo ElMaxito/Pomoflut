@@ -54,7 +54,7 @@ class TimerProvider with ChangeNotifier {
   int get seconds => _secondsRemaining % 60;
 
   void _playSound() {
-    _audioCache.play('beep.mp3');
+    _audioCache.play('beep.mp3', volume: _timerModel.volume);
   }
 
   void updateDurations({required int work, required int shortBreak, required int longBreak}) {
@@ -62,6 +62,11 @@ class TimerProvider with ChangeNotifier {
     _timerModel.shortBreakDuration = shortBreak;
     _timerModel.longBreakDuration = longBreak;
     _secondsRemaining = _currentPhase == Phase.Focus ? work * 60 : _secondsRemaining;
+    notifyListeners();
+  }
+
+  void updateVolume(double volume) {
+    _timerModel.volume = volume;
     notifyListeners();
   }
 
