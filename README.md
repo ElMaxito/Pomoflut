@@ -21,7 +21,7 @@ You can download the latest **Mac desktop version** of Pomoflut from the [Releas
 
 ## Getting Started
 
-To get started with Pomoflut, clone the repository and open it in your preferred IDE. Ensure you have Flutter installed and run the following commands:
+To get started with Pomoflut, clone the repository and open it in your preferred IDE (or download the app for Mac directly from the [Releases](https://github.com/ElMaxito/pomoflut/releases) page.). Ensure you have Flutter installed and run the following commands:
 
 ```bash
 flutter pub get
