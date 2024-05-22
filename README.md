@@ -2,6 +2,10 @@
 
 Pomoflut is a minimalist Pomodoro timer application built with Flutter. It helps you manage your time effectively by breaking your work into focused intervals with short and long breaks in between.
 
+## App Layout
+<img width="301" alt="Pomoflut Main" src="https://github.com/ElMaxito/Pomoflut/assets/113039423/9471a92c-734e-4538-af24-2c650b497a4d">      <img width="299" alt="Pomoflut Settings" src="https://github.com/ElMaxito/Pomoflut/assets/113039423/8e4ffb46-1fc6-4179-8ded-5892cafed9ca">
+
+
 ## Features
 
 - **Timer**: 25-minute work sessions (pomodoros) with 5-minute short breaks and 15-minute long breaks after every 4 pomodoros.
